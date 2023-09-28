@@ -1,0 +1,29 @@
+[package]
+name = "rust-forge-task-slack-message"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = "0.11.18"
+actix-web = "4.3.1"
+async-trait = "0.1.71"
+chrono = "0.4.26"
+support = { path = "../../libs/support" }
+error = { path = "../../libs/error" }
+infrastructure = { path = "../../libs/infrastructure" }
+config = { path = "../../libs/config" }
+diesel = { version = "2.1.0", features = [
+    "postgres",
+    "chrono",
+    "r2d2",
+    "serde_json",
+    "64-column-tables",
+] }
+validr = "0.3.1"
+serde = "1.0.171"
+serde_json = "1.0.103"
+env_logger = "0.10.0"
+[dev-dependencies]
+mockall = "0.11.4"

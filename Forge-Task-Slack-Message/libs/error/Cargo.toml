@@ -1,0 +1,16 @@
+[package]
+name = "error"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+validr = "0.3.0"
+r2d2 = "0.8.9"
+diesel = { version = "2.0.0-rc.0", features = ["postgres"] }
+chrono = "0.4.26"
+actix-web = "4.3.1"
+serde = "1.0.171"
+serde_json = "1.0.102"
+reqwest = "0.11.18"

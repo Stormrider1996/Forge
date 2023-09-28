@@ -1,0 +1,2 @@
+[print_schema]
+file = "libs/infrastructure/src/schema.rs"

@@ -1,0 +1,12 @@
+[workspace]
+
+resolver = "2"
+
+members = [
+    "libs/config",
+    "libs/error",
+    "libs/infrastructure",
+    "libs/support",
+    # Binary applications
+    "bins/app",
+]

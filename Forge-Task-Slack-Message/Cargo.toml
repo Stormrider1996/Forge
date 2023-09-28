@@ -1,0 +1,3 @@
+[workspace]
+
+members = ["bins/app", "libs/support", "libs/infrastructure", "libs/error"]

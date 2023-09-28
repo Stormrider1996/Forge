@@ -1,0 +1,25 @@
+[package]
+name = "error"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+test = false
+doctest = false
+
+[dependencies]
+
+actix-web = "4.3.1"
+diesel = { version = "2.1.0", features = ["postgres"] }
+jsonwebtoken = "8.3.0"
+r2d2 = "0.8.10"
+reqwest = "0.11.18"
+serde = "1.0.175"
+serde_json = "1.0.103"
+validr = "0.3.1"
+lettre = "0.10.4"
+bcrypt = "0.15.0"
+crypto-common = "0.1.6"
+jwt = "0.16.0"
+actix-session = "0.7.2"

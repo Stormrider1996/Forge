@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Barrage send slack message</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif}
+.alert {
+  padding: 20px;
+  background-color: #F44336;
+  color: white;
+  opacity: 1;
+  display: none;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+.alert.success {background-color: #4CAF50;}
+.alert.error {background-color: #F44336;}
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.closebtn:hover {
+  color: black;
+}
+</style>
+<body>
+<!-- Page content -->
+<div class="w3-content" style="max-width:2000px;">
+    <img src="https://media-exp1.licdn.com/dms/image/C561BAQEJhIxVqSO6Ew/company-background_10000/0?e=2159024400&v=beta&t=KnCZtwUcVBjE8R2idYJn6SbYcxvIOzs-qhg-uNtQCPQ" style="width:100%">
+  <div class="w3-half w3-right w3-padding-32">
+    <div class="alert success" id="successAlert" style="display: none;">
+      <span class="closebtn" onclick="closeAlert('successAlert')">&times;</span>
+      <strong>Success!</strong> Message sent successfuly.
+    </div>
+  </div>
+  <div class="w3-half w3-right w3-padding-32">
+    <div class="alert error" id="errorAlert" style="display: none;">
+      <span class="closebtn" onclick="closeAlert('errorAlert')">&times;</span>
+      <strong>Error!</strong> Something went wrong. Check name, message, channel and icon_emoj fields.
+    </div>
+  </div>
+  <div class="w3-half w3-right w3-padding-32">
+    <div class="alert error" id="error" style="display: none;">
+      <span class="closebtn" onclick="closeAlert('closeError')">&times;</span>
+      <strong>Error!</strong>
+    </div>
+  </div>
+<!-- The Contact Section -->
+  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+    <h2 class="w3-wide w3-center">CONTACT</h2>
+    <p class="w3-opacity w3-center"><i>Send slack message</i></p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-col m8">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="name" required name="name" id="name">
+            </div>
+          </div>
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="channel" required name="channel" id="channel">
+            </div>
+          </div>
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="icon_emoji" required name="icon_emoji" id="icon_emoji">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="message" required name="message" id="message">
+          <button class="w3-button w3-black w3-section w3-right" onclick="sendMessage()">Send slack message</button>
+      </div>
+    </div>
+  </div>
+<!-- End Page Content -->
+</div>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <a class="fa fa-facebook-official w3-hover-opacity" href="https://www.facebook.com/BarrageHQ/" target="_blank"></a>
+  <a class="fa fa-instagram w3-hover-opacity" href="https://www.instagram.com/barrage.hq/?hl=en" target="_blank"></a>
+  <a class="fa fa-twitter w3-hover-opacity" href="https://twitter.com/BarrageHQ" target="_blank"></a>
+  <a class="fa fa-linkedin w3-hover-opacity" href="https://www.linkedin.com/company/barragehq/" target="_blank"></a>
+  <p class="w3-medium">Powered by <a href="https://www.barrage.net/" target="_blank">Barrage</a></p>
+</footer>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function sendMessage() {
+  // Extract input values
+  var name = $('input[name="name"]').val();
+  var message = $('input[name="message"]').val();
+  var channel = $('input[name="channel"]').val();
+  var icon_emoji = $('input[name="icon_emoji"]').val();
+  // Check if any of the required fields are empty
+  if (name !== "" || message !== "" || channel !== "" || icon_emoji !== "") {
+    // Create the data object with the values
+    var data = {
+      name: name,
+      message: message,
+      channel: channel,
+      icon_emoji: icon_emoji,
+    };
+    // Send the request with valid JSON data
+    $.ajax({
+      type: "POST",
+      url: "/api/v1/slack_message",
+      data: JSON.stringify(data), // Convert data to a JSON string
+      contentType: "application/json", // Set the content type to JSON
+      success: function(result) {
+        var successAlert = document.getElementById("successAlert");
+        successAlert.style.display = "block";
+        // Clear input fields
+        $('#name').val("");
+        $('#message').val("");
+        $('#channel').val("");
+        $('#icon_emoji').val("");
+      },
+      error: function(result) {
+        var errorAlert = document.getElementById("error");
+        errorAlert.style.display = "block";
+      }
+    });
+  } else {
+    var alert = document.getElementById("errorAlert");
+    alert.style.display = "block";
+  }
+}
+function closeAlert(alert) {
+  var alert = document.getElementById(alert);
+      alert.style.display = "none";
+};
+</script>

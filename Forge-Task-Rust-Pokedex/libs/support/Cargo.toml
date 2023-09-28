@@ -1,0 +1,28 @@
+[package]
+name = "support"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+infrastructure = { path = "../infrastructure" }
+config = { path = "../config" }
+error = { path = "../error" }
+
+env_logger = "0.10.0"
+log = "0.4.17"
+chrono = { version = "0.4.26", features = ["serde"] }
+diesel = { version = "2.0.3", features = ["postgres", "chrono"] }
+serde = "1.0.175"
+uuid = "1.4.1"
+reqwest = "0.11.18"
+async-trait = "0.1.72"
+mockall = "0.11.4"
+actix-web = "4.3.1"
+lettre = "0.10.4"
+rand = "0.8.5"
+jsonwebtoken = "8.3.0"
+hmac = "0.12.1"
+sha2 = "0.10.7"
+jwt = "0.16.0"
+[dev-dependencies]

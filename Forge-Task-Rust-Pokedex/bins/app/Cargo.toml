@@ -1,0 +1,37 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+
+[dependencies]
+# Workspace 
+infrastructure = { path = "../../libs/infrastructure" }
+support = { path = "../../libs/support" }
+config = { path = "../../libs/config" }
+error = { path = "../../libs/error" }
+
+# Http Stuff
+actix-web = "4.3.1"
+log = "0.4.17"
+diesel = "2.1.0"
+mockall = "0.11.4"
+tokio = "1.29.1"
+dotenv = "0.15.0"
+async-trait = "0.1.72"
+dotenvy = "0.15.7"
+validr = "0.3.1"
+serde = "1.0.185"
+reqwest = "0.11.19"
+bcrypt = "0.15.0"
+chrono = "0.4.26"
+cookie = "0.17.0"
+jsonwebtoken = "8.3.0"
+futures = "0.3.28"
+futures-util = "0.3.28"
+actix-web-httpauth = "0.8.0"
+rand = "0.8.5"
+actix-session = "0.7.2"
+
+[dev-dependencies]
+mockall = "0.11.4"
