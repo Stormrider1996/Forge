@@ -1,0 +1,4 @@
+include:
+  - project: barrage/gitlab-ci-templates
+    ref: master
+    file: GitlabFlow/Deploy-simple.yml

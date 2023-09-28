@@ -1,0 +1,53 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+* :focus {
+  outline: none;
+}
+html,
+body {
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+img,
+picture,
+video,
+canvas {
+  display: block;
+  width: 100%;
+}
+svg {
+  flex-shrink: 0;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+a {
+  text-decoration: none;
+}

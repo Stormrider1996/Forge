@@ -1,0 +1,8 @@
+<svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <g class="loading-bars">
+    <path class="bar-1" d="M0,0H12V40H0V0Z" fill="#1f2d33" />
+    <path class="bar-2" d="M16,0h8V40h-8V0Z" fill="#1f2d33" />
+    <path class="bar-3" d="M28,0h4V40h-4V0Z" fill="#1f2d33" />
+    <path class="bar-4" d="M40,0V40h-4V0h4Z" fill="#1f2d33" />
+  </g>
+</svg>

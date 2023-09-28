@@ -1,0 +1,4 @@
+ingress:
+    annotations:
+        cert-manager.io/cluster-issuer: "barrage-dev-guja"
+priorityClassName: dev-master-high-priority

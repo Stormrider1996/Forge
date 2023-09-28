@@ -1,0 +1,33 @@
+version: "3"
+
+services:
+  backend:
+    image: backend
+    ports:
+      - 5445:5445
+    depends_on:
+      - db
+      - cache
+  frontend:
+    image: frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+      - cache
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydatabase
+    volumes:
+      - /tmp/psql-demo-data:/bitnami/postgresql:rw
+    ports:
+      - 5432:5432
+
+  cache:
+    image: redis:latest
+    ports:
+      - 6379:6379

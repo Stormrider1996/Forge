@@ -1,0 +1,11 @@
+[Default]
+* @access-group/prodig-reviewers
+
+[DevOps]
+CODEOWNERS @DevOps
+.gitlab-ci.yml @DevOps
+src/**/.gitlab-ci.yml @DevOps
+chart/ @DevOps
+src/**/chart/ @DevOps
+Dockerfile @DevOps
+src/**/Dockerfile @DevOps

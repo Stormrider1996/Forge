@@ -1,0 +1,93 @@
+default:
+  tags:
+    - shell-executor
+
+stages:
+  - stage1
+  - stage2
+  - almost-done
+  - really-done
+
+
+
+build_dependencies:
+  stage: stage1
+  script:
+    - echo "I will pretend to build some dependencies and export an artifact"
+    - echo "Building hehe"
+    - sleep 10
+    - |
+      mkdir some_deps
+      echo "Some dependencies are really here, I promise" > some_deps/readme.md
+    - echo "Build done"
+  artifacts:
+    name: glorious_dependencies
+    expose_as: glorious_dependencies
+    paths: 
+      - some_deps/
+    expire_in: 1 minute
+
+maybe_lint:
+  stage: stage1
+  script:
+    - echo "Is this the linter, is this just fantasy?"
+    - sleep 5
+
+
+build:
+  stage: stage2
+  script:
+    - echo "Artifacts are automatically downloaded into this job"
+    - ls -la
+    - cat some_deps/readme.md
+    - echo "I am suppoed to run series of scripts in order to build something"
+    - sleep 10
+    - |
+      mkdir some_build
+      echo "This is a built image i swear" > some_build/readme.md
+    - echo "Jobs done"
+  artifacts:
+    name: glorious_build
+    expose_as: glorious_build
+    paths:
+      - some_build/
+    expire_in: 1 minute
+  needs:
+    - build_dependencies
+
+im_with_lint:
+  stage: stage2
+  script:
+    - echo "I dont know anything, I'm here with lint"
+  needs:
+    - maybe_lint
+  
+some_random_test1:
+  stage: almost-done
+  dependencies:
+    - build
+  script:
+    - echo "I have only artifacts from build job"
+    - ls -la
+    - cat some_deps/readme.md || true
+    - cat some_build/readme.md
+    - echo "Pretending to test the build image"
+    - sleep 10
+
+random_no_artifacts:
+  stage: almost-done
+  dependecies: []
+  script:
+    - echo "I dont have any artifacts from previous jobs"
+    - ls -la
+    - cat some_deps/readme.md || true
+    - cat some_build/readme.md || true
+    - echo "Not even pretending to work"
+
+wannabe_deploy:
+  stage: really-done
+  script:
+    - echo "I have deployed something to your cluster"
+    - echo "You can look for the result in the following link"
+    - echo "SIKE, :naaparatima:"
+    - exit 1

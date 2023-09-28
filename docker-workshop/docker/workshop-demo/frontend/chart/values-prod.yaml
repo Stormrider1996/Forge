@@ -1,0 +1,6 @@
+ingress:
+    annotations:
+        kubernetes.io/ingress.class: nginx
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/cluster-issuer: "barrage-le-production"
+        nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0

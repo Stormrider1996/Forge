@@ -1,0 +1,1428 @@
+{
+	"info": {
+		"_postman_id": "e711337a-857b-428d-967f-27f810698f15",
+		"name": "Franjo - express",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26789678",
+		"_collection_link": "https://barrage-team.postman.co/workspace/Franjo-Jumic~6664d5e4-69d6-4320-8e06-54f27b7da5de/collection/26789678-e711337a-857b-428d-967f-27f810698f15?action=share&creator=26789678&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "/api/v1/users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "first_name",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "DESC",
+									"disabled": true
+								},
+								{
+									"key": "filter[first_name]",
+									"value": "hash",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/users?page=1&limit=5&sort=first_name&order=DESC&filter[first_name]=hash",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "first_name"
+										},
+										{
+											"key": "order",
+											"value": "DESC"
+										},
+										{
+											"key": "filter[first_name]",
+											"value": "hash"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1020"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3fc-DIn1uz1lXxt+3ilETUdw/sauLCI\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"users\": [\n        {\n            \"id\": \"375f2207-33b0-47ef-bd22-98dc0852f936\",\n            \"email\": \"haseehum@poke.com\",\n            \"first_name\": \"hash\",\n            \"last_name\": \"ketchum\",\n            \"password\": \"$2b$10$ngavhzAXwnbXHs9mg8Ljr.OQm/m6xII8hvqVB6hcP5.G91xWeQG8q\",\n            \"otp_secret\": null,\n            \"google_id\": null,\n            \"github_id\": null,\n            \"linkedin_id\": null,\n            \"locale\": null,\n            \"timezone\": null,\n            \"city_country\": null,\n            \"location\": null,\n            \"phone\": null,\n            \"dob\": null,\n            \"workplace\": [],\n            \"gender\": null,\n            \"disability\": null,\n            \"about\": null,\n            \"email_verified_at\": null,\n            \"notifications_read_at\": \"2023-05-22T12:28:50.473Z\",\n            \"talent_onboarding_done\": null,\n            \"company_onboarding_done\": null,\n            \"culture_clan\": null,\n            \"culture_adhocracy\": null,\n            \"culture_hierarchy\": null,\n            \"culture_market\": null,\n            \"title\": null,\n            \"profile_picture\": null,\n            \"cover_picture\": null,\n            \"created_at\": \"2023-05-22T12:28:50.473Z\",\n            \"updated_at\": \"2023-05-22T12:28:50.473Z\",\n            \"deleted_at\": null,\n            \"deactivate_message\": null,\n            \"privacy_mode\": \"public\",\n            \"tsq\": \"\",\n            \"freeze_message\": null,\n            \"admin_actions\": []\n        }\n    ],\n    \"count\": 1,\n    \"totalPages\": 1,\n    \"page\": \"1\",\n    \"limit\": \"5\",\n    \"sort\": \"first_name\",\n    \"order\": \"DESC\",\n    \"filter\": {\n        \"first_name\": \"hash\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable('user_id', data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"franjo.jumic@barrage.net\",\n    \"first_name\": \"Fuma\",\n    \"last_name\": \"Juma\",\n    \"password\": \"passworddd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/users",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"franjo.jumic@barrage.net\",\n    \"first_name\": \"Fuma\",\n    \"last_name\": \"Juma\",\n    \"password\": \"passworddd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/users",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "898"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"382-g3VQklUHgtZzQqREBixE/cBttHs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"workplace\": [],\n    \"notifications_read_at\": \"2023-05-23T12:33:28.195Z\",\n    \"created_at\": \"2023-05-23T12:33:28.195Z\",\n    \"updated_at\": \"2023-05-23T12:33:28.195Z\",\n    \"privacy_mode\": \"public\",\n    \"tsq\": \"\",\n    \"admin_actions\": [],\n    \"email\": \"franjo.jumic@barrage.net\",\n    \"first_name\": \"Fuma\",\n    \"last_name\": \"Juma\",\n    \"password\": \"$2b$12$575sQYYuYhpoHWzkLy8dse6ez/wQTY4.5lgk.rFav6VPI/DQYrrRS\",\n    \"otp_secret\": null,\n    \"google_id\": null,\n    \"github_id\": null,\n    \"linkedin_id\": null,\n    \"locale\": null,\n    \"timezone\": null,\n    \"city_country\": null,\n    \"location\": null,\n    \"phone\": null,\n    \"dob\": null,\n    \"gender\": null,\n    \"disability\": null,\n    \"about\": null,\n    \"email_verified_at\": null,\n    \"talent_onboarding_done\": null,\n    \"company_onboarding_done\": null,\n    \"culture_clan\": null,\n    \"culture_adhocracy\": null,\n    \"culture_hierarchy\": null,\n    \"culture_market\": null,\n    \"title\": null,\n    \"profile_picture\": null,\n    \"cover_picture\": null,\n    \"deleted_at\": null,\n    \"deactivate_message\": null,\n    \"freeze_message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/users/{{user_id}}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{user_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/users/{{user_id}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "898"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"382-OAA24enjyKMtBUSKD9mw0SUP92E\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"email\": \"franjo.jumic@barrage.net\",\n    \"first_name\": \"Fuma\",\n    \"last_name\": \"Juma\",\n    \"password\": \"$2b$12$575sQYYuYhpoHWzkLy8dse6ez/wQTY4.5lgk.rFav6VPI/DQYrrRS\",\n    \"otp_secret\": null,\n    \"google_id\": null,\n    \"github_id\": null,\n    \"linkedin_id\": null,\n    \"locale\": null,\n    \"timezone\": null,\n    \"city_country\": null,\n    \"location\": null,\n    \"phone\": null,\n    \"dob\": null,\n    \"workplace\": [],\n    \"gender\": null,\n    \"disability\": null,\n    \"about\": null,\n    \"email_verified_at\": null,\n    \"notifications_read_at\": \"2023-05-23T12:33:28.195Z\",\n    \"talent_onboarding_done\": null,\n    \"company_onboarding_done\": null,\n    \"culture_clan\": null,\n    \"culture_adhocracy\": null,\n    \"culture_hierarchy\": null,\n    \"culture_market\": null,\n    \"title\": null,\n    \"profile_picture\": null,\n    \"cover_picture\": null,\n    \"created_at\": \"2023-05-23T12:33:28.195Z\",\n    \"updated_at\": \"2023-05-23T12:33:28.195Z\",\n    \"deleted_at\": null,\n    \"deactivate_message\": null,\n    \"privacy_mode\": \"public\",\n    \"tsq\": \"\",\n    \"freeze_message\": null,\n    \"admin_actions\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/users/{{user_id}}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\":\"mafu\",\n    \"last_name\":\"maju\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{user_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/users/{{user_id}}",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\":\"mafu\",\n    \"last_name\":\"maju\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "898"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"382-X0Xbaakqj3Ef98OWC5YGe+gBJfo\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"email\": \"franjo.jumic@barrage.net\",\n    \"first_name\": \"mafu\",\n    \"last_name\": \"maju\",\n    \"password\": \"$2b$12$575sQYYuYhpoHWzkLy8dse6ez/wQTY4.5lgk.rFav6VPI/DQYrrRS\",\n    \"otp_secret\": null,\n    \"google_id\": null,\n    \"github_id\": null,\n    \"linkedin_id\": null,\n    \"locale\": null,\n    \"timezone\": null,\n    \"city_country\": null,\n    \"location\": null,\n    \"phone\": null,\n    \"dob\": null,\n    \"workplace\": [],\n    \"gender\": null,\n    \"disability\": null,\n    \"about\": null,\n    \"email_verified_at\": null,\n    \"notifications_read_at\": \"2023-05-23T12:33:28.195Z\",\n    \"talent_onboarding_done\": null,\n    \"company_onboarding_done\": null,\n    \"culture_clan\": null,\n    \"culture_adhocracy\": null,\n    \"culture_hierarchy\": null,\n    \"culture_market\": null,\n    \"title\": null,\n    \"profile_picture\": null,\n    \"cover_picture\": null,\n    \"created_at\": \"2023-05-23T12:33:28.195Z\",\n    \"updated_at\": \"2023-05-23T12:33:34.277Z\",\n    \"deleted_at\": null,\n    \"deactivate_message\": null,\n    \"privacy_mode\": \"public\",\n    \"tsq\": \"\",\n    \"freeze_message\": null,\n    \"admin_actions\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/users/{{user_id}}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/users/{{user_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/users/{{user_id}}",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/users/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"users",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4-X/5TO4MPCKAyY0ipFgr6/IraRNs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:34:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "/api/v1/companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies?page=1&limit=5&sort=name&order=ASC&filter[name]=Team Rocket",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "sort",
+									"value": "name"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								},
+								{
+									"key": "filter[name]",
+									"value": "Team Rocket"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/companies?page=1&limit=5&sort=name&order=ASC&filter[name]=Team Rocket",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "5"
+										},
+										{
+											"key": "sort",
+											"value": "name"
+										},
+										{
+											"key": "order",
+											"value": "ASC"
+										},
+										{
+											"key": "filter[name]",
+											"value": "Team Rocket"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "8239"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"202f-6IvAfdQWdFE5f+vXDI4jvFJrHcA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"companies\": [\n        {\n            \"id\": \"ce3794be-c35d-42a1-818e-e493af290391\",\n            \"handle\": \"pokemon\",\n            \"name\": \"Team Rocket\",\n            \"website\": \"https://www.altamira.ai/\",\n            \"country\": \"Canada\",\n            \"eu_vat_id\": null,\n            \"business_entity_id\": null,\n            \"size\": null,\n            \"organization_type\": null,\n            \"industry\": null,\n            \"short_description\": null,\n            \"long_description\": null,\n            \"long_description_text\": null,\n            \"culture_clan\": null,\n            \"culture_adhocracy\": null,\n            \"culture_hierarchy\": null,\n            \"culture_market\": null,\n            \"plan_id\": \"free\",\n            \"established_at\": \"2023-05-23T10:32:41.453Z\",\n            \"representative_first_name\": null,\n            \"representative_last_name\": null,\n            \"representative_email\": null,\n            \"representative_phone\": null,\n            \"mission\": null,\n            \"vision\": null,\n            \"values\": [],\n            \"career_growth_path\": null,\n            \"person_in_charge\": null,\n            \"topics\": [\n                \"AI\",\n                \"Machine Learning\",\n                \"Natural Language Processing\",\n                \"Computer Vision\"\n            ],\n            \"hr_one_on_one\": false,\n            \"leaders_one_on_one\": false,\n            \"hr_session_frequency\": null,\n            \"hr_session_conductor\": null,\n            \"leader_session_frequency\": null,\n            \"leader_session_conductor\": null,\n            \"employee_development\": null,\n            \"team_building_activities\": null,\n            \"team_building_frequency\": null,\n            \"employee_training_programs\": [],\n            \"employee_learning_programs\": false,\n            \"learning_initiatives\": [],\n            \"learning_activity\": [],\n            \"continuous_learning\": null,\n            \"offering\": null,\n            \"expectation\": null,\n            \"benefits_and_perks\": null,\n            \"flexible_work\": false,\n            \"remote_work\": false,\n            \"pet_friendly_office\": false,\n            \"work_life_balance\": null,\n            \"profile_picture\": null,\n            \"cover_picture\": null,\n            \"icon_picture\": null,\n            \"created_by\": \"6beecc51-c0c4-4082-bf2b-557040cebfe9\",\n            \"created_at\": \"2023-05-23T10:32:41.242Z\",\n            \"updated_at\": \"2023-05-23T10:32:41.242Z\",\n            \"deleted_at\": null,\n            \"deactivate_message\": null,\n            \"meta_title\": null,\n            \"meta_description\": null,\n            \"meta_image\": null\n        },\n        {\n            \"id\": \"0d16e823-510f-4e35-8b83-695b9125aa9f\",\n            \"handle\": \"pokemon\",\n            \"name\": \"Team Rocket\",\n            \"website\": \"https://www.altamira.ai/\",\n            \"country\": \"Canada\",\n            \"eu_vat_id\": null,\n            \"business_entity_id\": null,\n            \"size\": null,\n            \"organization_type\": null,\n            \"industry\": null,\n            \"short_description\": null,\n            \"long_description\": null,\n            \"long_description_text\": null,\n            \"culture_clan\": null,\n            \"culture_adhocracy\": null,\n            \"culture_hierarchy\": null,\n            \"culture_market\": null,\n            \"plan_id\": \"free\",\n            \"established_at\": \"2023-05-23T11:00:35.014Z\",\n            \"representative_first_name\": null,\n            \"representative_last_name\": null,\n            \"representative_email\": null,\n            \"representative_phone\": null,\n            \"mission\": null,\n            \"vision\": null,\n            \"values\": [],\n            \"career_growth_path\": null,\n            \"person_in_charge\": null,\n            \"topics\": [\n                \"AI\",\n                \"Machine Learning\",\n                \"Natural Language Processing\",\n                \"Computer Vision\"\n            ],\n            \"hr_one_on_one\": false,\n            \"leaders_one_on_one\": false,\n            \"hr_session_frequency\": null,\n            \"hr_session_conductor\": null,\n            \"leader_session_frequency\": null,\n            \"leader_session_conductor\": null,\n            \"employee_development\": null,\n            \"team_building_activities\": null,\n            \"team_building_frequency\": null,\n            \"employee_training_programs\": [],\n            \"employee_learning_programs\": false,\n            \"learning_initiatives\": [],\n            \"learning_activity\": [],\n            \"continuous_learning\": null,\n            \"offering\": null,\n            \"expectation\": null,\n            \"benefits_and_perks\": null,\n            \"flexible_work\": false,\n            \"remote_work\": false,\n            \"pet_friendly_office\": false,\n            \"work_life_balance\": null,\n            \"profile_picture\": null,\n            \"cover_picture\": null,\n            \"icon_picture\": null,\n            \"created_by\": \"9e0deece-4a62-44ce-87ea-ceeb09e2906b\",\n            \"created_at\": \"2023-05-23T11:00:34.813Z\",\n            \"updated_at\": \"2023-05-23T11:00:34.813Z\",\n            \"deleted_at\": null,\n            \"deactivate_message\": null,\n            \"meta_title\": null,\n            \"meta_description\": null,\n            \"meta_image\": null\n        },\n        {\n            \"id\": \"62e70e8a-bcce-45cd-a602-c6c6159ba6b1\",\n            \"handle\": \"pokemon\",\n            \"name\": \"Team Rocket\",\n            \"website\": \"https://www.altamira.ai/\",\n            \"country\": \"Canada\",\n            \"eu_vat_id\": null,\n            \"business_entity_id\": null,\n            \"size\": null,\n            \"organization_type\": null,\n            \"industry\": null,\n            \"short_description\": null,\n            \"long_description\": null,\n            \"long_description_text\": null,\n            \"culture_clan\": null,\n            \"culture_adhocracy\": null,\n            \"culture_hierarchy\": null,\n            \"culture_market\": null,\n            \"plan_id\": \"free\",\n            \"established_at\": \"2023-05-19T07:02:44.417Z\",\n            \"representative_first_name\": null,\n            \"representative_last_name\": null,\n            \"representative_email\": null,\n            \"representative_phone\": null,\n            \"mission\": null,\n            \"vision\": null,\n            \"values\": [],\n            \"career_growth_path\": null,\n            \"person_in_charge\": null,\n            \"topics\": [\n                \"AI\",\n                \"Machine Learning\",\n                \"Natural Language Processing\",\n                \"Computer Vision\"\n            ],\n            \"hr_one_on_one\": false,\n            \"leaders_one_on_one\": false,\n            \"hr_session_frequency\": null,\n            \"hr_session_conductor\": null,\n            \"leader_session_frequency\": null,\n            \"leader_session_conductor\": null,\n            \"employee_development\": null,\n            \"team_building_activities\": null,\n            \"team_building_frequency\": null,\n            \"employee_training_programs\": [],\n            \"employee_learning_programs\": false,\n            \"learning_initiatives\": [],\n            \"learning_activity\": [],\n            \"continuous_learning\": null,\n            \"offering\": null,\n            \"expectation\": null,\n            \"benefits_and_perks\": null,\n            \"flexible_work\": false,\n            \"remote_work\": false,\n            \"pet_friendly_office\": false,\n            \"work_life_balance\": null,\n            \"profile_picture\": null,\n            \"cover_picture\": null,\n            \"icon_picture\": null,\n            \"created_by\": \"4ce71a9b-e60b-4215-a2f4-1897daff27b0\",\n            \"created_at\": \"2023-05-19T07:02:44.351Z\",\n            \"updated_at\": \"2023-05-19T07:02:44.351Z\",\n            \"deleted_at\": null,\n            \"deactivate_message\": null,\n            \"meta_title\": null,\n            \"meta_description\": null,\n            \"meta_image\": null\n        },\n        {\n            \"id\": \"23c545a3-9683-4965-af7c-b01d55c73405\",\n            \"handle\": \"pokemon\",\n            \"name\": \"Team Rocket\",\n            \"website\": \"https://www.altamira.ai/\",\n            \"country\": \"Canada\",\n            \"eu_vat_id\": null,\n            \"business_entity_id\": null,\n            \"size\": null,\n            \"organization_type\": null,\n            \"industry\": null,\n            \"short_description\": null,\n            \"long_description\": null,\n            \"long_description_text\": null,\n            \"culture_clan\": null,\n            \"culture_adhocracy\": null,\n            \"culture_hierarchy\": null,\n            \"culture_market\": null,\n            \"plan_id\": \"free\",\n            \"established_at\": \"2023-05-19T07:02:45.222Z\",\n            \"representative_first_name\": null,\n            \"representative_last_name\": null,\n            \"representative_email\": null,\n            \"representative_phone\": null,\n            \"mission\": null,\n            \"vision\": null,\n            \"values\": [],\n            \"career_growth_path\": null,\n            \"person_in_charge\": null,\n            \"topics\": [\n                \"AI\",\n                \"Machine Learning\",\n                \"Natural Language Processing\",\n                \"Computer Vision\"\n            ],\n            \"hr_one_on_one\": false,\n            \"leaders_one_on_one\": false,\n            \"hr_session_frequency\": null,\n            \"hr_session_conductor\": null,\n            \"leader_session_frequency\": null,\n            \"leader_session_conductor\": null,\n            \"employee_development\": null,\n            \"team_building_activities\": null,\n            \"team_building_frequency\": null,\n            \"employee_training_programs\": [],\n            \"employee_learning_programs\": false,\n            \"learning_initiatives\": [],\n            \"learning_activity\": [],\n            \"continuous_learning\": null,\n            \"offering\": null,\n            \"expectation\": null,\n            \"benefits_and_perks\": null,\n            \"flexible_work\": false,\n            \"remote_work\": false,\n            \"pet_friendly_office\": false,\n            \"work_life_balance\": null,\n            \"profile_picture\": null,\n            \"cover_picture\": null,\n            \"icon_picture\": null,\n            \"created_by\": \"4ce71a9b-e60b-4215-a2f4-1897daff27b0\",\n            \"created_at\": \"2023-05-19T07:02:45.197Z\",\n            \"updated_at\": \"2023-05-19T07:02:45.197Z\",\n            \"deleted_at\": null,\n            \"deactivate_message\": null,\n            \"meta_title\": null,\n            \"meta_description\": null,\n            \"meta_image\": null\n        },\n        {\n            \"id\": \"d691e1e8-638e-4088-924f-7d65ae158ed9\",\n            \"handle\": \"pokemon\",\n            \"name\": \"Team Rocket\",\n            \"website\": \"https://www.altamira.ai/\",\n            \"country\": \"Canada\",\n            \"eu_vat_id\": null,\n            \"business_entity_id\": null,\n            \"size\": null,\n            \"organization_type\": null,\n            \"industry\": null,\n            \"short_description\": null,\n            \"long_description\": null,\n            \"long_description_text\": null,\n            \"culture_clan\": null,\n            \"culture_adhocracy\": null,\n            \"culture_hierarchy\": null,\n            \"culture_market\": null,\n            \"plan_id\": \"free\",\n            \"established_at\": \"2023-05-19T07:02:45.993Z\",\n            \"representative_first_name\": null,\n            \"representative_last_name\": null,\n            \"representative_email\": null,\n            \"representative_phone\": null,\n            \"mission\": null,\n            \"vision\": null,\n            \"values\": [],\n            \"career_growth_path\": null,\n            \"person_in_charge\": null,\n            \"topics\": [\n                \"AI\",\n                \"Machine Learning\",\n                \"Natural Language Processing\",\n                \"Computer Vision\"\n            ],\n            \"hr_one_on_one\": false,\n            \"leaders_one_on_one\": false,\n            \"hr_session_frequency\": null,\n            \"hr_session_conductor\": null,\n            \"leader_session_frequency\": null,\n            \"leader_session_conductor\": null,\n            \"employee_development\": null,\n            \"team_building_activities\": null,\n            \"team_building_frequency\": null,\n            \"employee_training_programs\": [],\n            \"employee_learning_programs\": false,\n            \"learning_initiatives\": [],\n            \"learning_activity\": [],\n            \"continuous_learning\": null,\n            \"offering\": null,\n            \"expectation\": null,\n            \"benefits_and_perks\": null,\n            \"flexible_work\": false,\n            \"remote_work\": false,\n            \"pet_friendly_office\": false,\n            \"work_life_balance\": null,\n            \"profile_picture\": null,\n            \"cover_picture\": null,\n            \"icon_picture\": null,\n            \"created_by\": \"4ce71a9b-e60b-4215-a2f4-1897daff27b0\",\n            \"created_at\": \"2023-05-19T07:02:45.967Z\",\n            \"updated_at\": \"2023-05-19T07:02:45.967Z\",\n            \"deleted_at\": null,\n            \"deactivate_message\": null,\n            \"meta_title\": null,\n            \"meta_description\": null,\n            \"meta_image\": null\n        }\n    ],\n    \"count\": 20,\n    \"totalPages\": 4,\n    \"page\": \"1\",\n    \"limit\": \"5\",\n    \"sort\": \"name\",\n    \"order\": \"ASC\",\n    \"filter\": {\n        \"name\": \"Team Rocket\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable('company_id', data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"handle\": \"pokemon\",\n  \"name\": \"Team Rocket\",\n  \"website\": \"https://www.altamira.ai/\",\n  \"country\": \"Canada\",\n  \"topics\": [\"AI\", \"Machine Learning\", \"Natural Language Processing\", \"Computer Vision\"],\n  \"created_by\" : \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/companies",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"handle\": \"pokemon\",\n  \"name\": \"Team Rocket\",\n  \"website\": \"https://www.altamira.ai/\",\n  \"country\": \"Canada\",\n  \"topics\": [\"AI\", \"Machine Learning\", \"Natural Language Processing\", \"Computer Vision\"],\n  \"created_by\" : \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/companies",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1622"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"656-TRSYsYr0oJljjyeR5lDVMK1u4ZA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n    \"created_at\": \"2023-05-23T12:33:39.450Z\",\n    \"updated_at\": \"2023-05-23T12:33:39.450Z\",\n    \"handle\": \"pokemon\",\n    \"name\": \"Team Rocket\",\n    \"website\": \"https://www.altamira.ai/\",\n    \"country\": \"Canada\",\n    \"topics\": [\n        \"AI\",\n        \"Machine Learning\",\n        \"Natural Language Processing\",\n        \"Computer Vision\"\n    ],\n    \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"eu_vat_id\": null,\n    \"business_entity_id\": null,\n    \"size\": null,\n    \"organization_type\": null,\n    \"industry\": null,\n    \"short_description\": null,\n    \"long_description\": null,\n    \"long_description_text\": null,\n    \"culture_clan\": null,\n    \"culture_adhocracy\": null,\n    \"culture_hierarchy\": null,\n    \"culture_market\": null,\n    \"plan_id\": \"free\",\n    \"established_at\": \"2023-05-23T12:33:39.574Z\",\n    \"representative_first_name\": null,\n    \"representative_last_name\": null,\n    \"representative_email\": null,\n    \"representative_phone\": null,\n    \"mission\": null,\n    \"vision\": null,\n    \"values\": [],\n    \"career_growth_path\": null,\n    \"person_in_charge\": null,\n    \"hr_one_on_one\": false,\n    \"leaders_one_on_one\": false,\n    \"hr_session_frequency\": null,\n    \"hr_session_conductor\": null,\n    \"leader_session_frequency\": null,\n    \"leader_session_conductor\": null,\n    \"employee_development\": null,\n    \"team_building_activities\": null,\n    \"team_building_frequency\": null,\n    \"employee_training_programs\": [],\n    \"employee_learning_programs\": false,\n    \"learning_initiatives\": [],\n    \"learning_activity\": [],\n    \"continuous_learning\": null,\n    \"offering\": null,\n    \"expectation\": null,\n    \"benefits_and_perks\": null,\n    \"flexible_work\": false,\n    \"remote_work\": false,\n    \"pet_friendly_office\": false,\n    \"work_life_balance\": null,\n    \"profile_picture\": null,\n    \"cover_picture\": null,\n    \"icon_picture\": null,\n    \"deleted_at\": null,\n    \"deactivate_message\": null,\n    \"meta_title\": null,\n    \"meta_description\": null,\n    \"meta_image\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/companies/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1622"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"656-+HztqqbCJAnr52HAe5GjLSLm3uM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n    \"handle\": \"pokemon\",\n    \"name\": \"Team Rocket\",\n    \"website\": \"https://www.altamira.ai/\",\n    \"country\": \"Canada\",\n    \"eu_vat_id\": null,\n    \"business_entity_id\": null,\n    \"size\": null,\n    \"organization_type\": null,\n    \"industry\": null,\n    \"short_description\": null,\n    \"long_description\": null,\n    \"long_description_text\": null,\n    \"culture_clan\": null,\n    \"culture_adhocracy\": null,\n    \"culture_hierarchy\": null,\n    \"culture_market\": null,\n    \"plan_id\": \"free\",\n    \"established_at\": \"2023-05-23T12:33:39.574Z\",\n    \"representative_first_name\": null,\n    \"representative_last_name\": null,\n    \"representative_email\": null,\n    \"representative_phone\": null,\n    \"mission\": null,\n    \"vision\": null,\n    \"values\": [],\n    \"career_growth_path\": null,\n    \"person_in_charge\": null,\n    \"topics\": [\n        \"AI\",\n        \"Machine Learning\",\n        \"Natural Language Processing\",\n        \"Computer Vision\"\n    ],\n    \"hr_one_on_one\": false,\n    \"leaders_one_on_one\": false,\n    \"hr_session_frequency\": null,\n    \"hr_session_conductor\": null,\n    \"leader_session_frequency\": null,\n    \"leader_session_conductor\": null,\n    \"employee_development\": null,\n    \"team_building_activities\": null,\n    \"team_building_frequency\": null,\n    \"employee_training_programs\": [],\n    \"employee_learning_programs\": false,\n    \"learning_initiatives\": [],\n    \"learning_activity\": [],\n    \"continuous_learning\": null,\n    \"offering\": null,\n    \"expectation\": null,\n    \"benefits_and_perks\": null,\n    \"flexible_work\": false,\n    \"remote_work\": false,\n    \"pet_friendly_office\": false,\n    \"work_life_balance\": null,\n    \"profile_picture\": null,\n    \"cover_picture\": null,\n    \"icon_picture\": null,\n    \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"created_at\": \"2023-05-23T12:33:39.450Z\",\n    \"updated_at\": \"2023-05-23T12:33:39.450Z\",\n    \"deleted_at\": null,\n    \"deactivate_message\": null,\n    \"meta_title\": null,\n    \"meta_description\": null,\n    \"meta_image\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"handle\": \"digimon\",\n  \"name\": \"digi world\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"handle\": \"digimon\",\n  \"name\": \"digi world\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/companies/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1621"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"655-S5fCSWNZB9AMstfVM4LrzyUrtes\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n    \"handle\": \"digimon\",\n    \"name\": \"digi world\",\n    \"website\": \"https://www.altamira.ai/\",\n    \"country\": \"Canada\",\n    \"eu_vat_id\": null,\n    \"business_entity_id\": null,\n    \"size\": null,\n    \"organization_type\": null,\n    \"industry\": null,\n    \"short_description\": null,\n    \"long_description\": null,\n    \"long_description_text\": null,\n    \"culture_clan\": null,\n    \"culture_adhocracy\": null,\n    \"culture_hierarchy\": null,\n    \"culture_market\": null,\n    \"plan_id\": \"free\",\n    \"established_at\": \"2023-05-23T12:33:39.574Z\",\n    \"representative_first_name\": null,\n    \"representative_last_name\": null,\n    \"representative_email\": null,\n    \"representative_phone\": null,\n    \"mission\": null,\n    \"vision\": null,\n    \"values\": [],\n    \"career_growth_path\": null,\n    \"person_in_charge\": null,\n    \"topics\": [\n        \"AI\",\n        \"Machine Learning\",\n        \"Natural Language Processing\",\n        \"Computer Vision\"\n    ],\n    \"hr_one_on_one\": false,\n    \"leaders_one_on_one\": false,\n    \"hr_session_frequency\": null,\n    \"hr_session_conductor\": null,\n    \"leader_session_frequency\": null,\n    \"leader_session_conductor\": null,\n    \"employee_development\": null,\n    \"team_building_activities\": null,\n    \"team_building_frequency\": null,\n    \"employee_training_programs\": [],\n    \"employee_learning_programs\": false,\n    \"learning_initiatives\": [],\n    \"learning_activity\": [],\n    \"continuous_learning\": null,\n    \"offering\": null,\n    \"expectation\": null,\n    \"benefits_and_perks\": null,\n    \"flexible_work\": false,\n    \"remote_work\": false,\n    \"pet_friendly_office\": false,\n    \"work_life_balance\": null,\n    \"profile_picture\": null,\n    \"cover_picture\": null,\n    \"icon_picture\": null,\n    \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"created_at\": \"2023-05-23T12:33:39.450Z\",\n    \"updated_at\": \"2023-05-23T12:33:44.126Z\",\n    \"deleted_at\": null,\n    \"deactivate_message\": null,\n    \"meta_title\": null,\n    \"meta_description\": null,\n    \"meta_image\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/companies/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4-X/5TO4MPCKAyY0ipFgr6/IraRNs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:34:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "company_departments",
+			"item": [
+				{
+					"name": "/api/v1/companies/{{company_id}}/departments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable('department_id', data.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"kanto\",\n    \"created_by\": \"{{user_id}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}/departments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}",
+								"departments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}/departments",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"kanto\",\n    \"created_by\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/companies//departments",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"",
+										"departments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "298"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12a-qq+JTe8lqF8CrDvDWroZdeI6WSw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:34:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"9fe9d7ab-a9ee-4142-86e1-eda672665d96\",\n    \"created_at\": \"2023-05-23T12:34:11.206Z\",\n    \"updated_at\": \"2023-05-23T12:34:11.206Z\",\n    \"name\": \"kanto\",\n    \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"company_id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n    \"parent_id\": null,\n    \"archived_at\": null,\n    \"deleted_at\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}",
+								"departments",
+								"{{department_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/companies//departments/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"",
+										"departments",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "299"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12b-Q+txRdMsTvMUNiP4kusv3kFrnro\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"09577310-d825-45a3-adf1-d7679fe3c15a\",\n        \"name\": \"joto\",\n        \"company_id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n        \"parent_id\": null,\n        \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n        \"created_at\": \"2023-05-23T12:33:47.595Z\",\n        \"updated_at\": \"2023-05-23T12:33:47.595Z\",\n        \"archived_at\": null,\n        \"deleted_at\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}/departments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}/departments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}",
+								"departments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}/departments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/companies//departments",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"",
+										"departments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "598"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"256-YbDV3Kh5jxkQZ1t5BVF+/vwQ/Hg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:34:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"09577310-d825-45a3-adf1-d7679fe3c15a\",\n        \"name\": \"moto\",\n        \"company_id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n        \"parent_id\": null,\n        \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n        \"created_at\": \"2023-05-23T12:33:47.595Z\",\n        \"updated_at\": \"2023-05-23T12:33:54.562Z\",\n        \"archived_at\": null,\n        \"deleted_at\": null\n    },\n    {\n        \"id\": \"9fe9d7ab-a9ee-4142-86e1-eda672665d96\",\n        \"name\": \"kanto\",\n        \"company_id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n        \"parent_id\": null,\n        \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n        \"created_at\": \"2023-05-23T12:34:11.206Z\",\n        \"updated_at\": \"2023-05-23T12:34:11.206Z\",\n        \"archived_at\": null,\n        \"deleted_at\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"moto\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}",
+								"departments",
+								"{{department_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"moto\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:3000/api/v1/companies//departments/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"",
+										"departments",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "297"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"129-3TEg5ZzmPADLHE4YeQMc32NPQRc\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:33:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"09577310-d825-45a3-adf1-d7679fe3c15a\",\n    \"name\": \"moto\",\n    \"company_id\": \"827de764-f387-4992-a80f-29b9537e05af\",\n    \"parent_id\": null,\n    \"created_by\": \"0f03d015-8fbf-4e75-8638-1c4167999a95\",\n    \"created_at\": \"2023-05-23T12:33:47.595Z\",\n    \"updated_at\": \"2023-05-23T12:33:54.562Z\",\n    \"archived_at\": null,\n    \"deleted_at\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								"{{company_id}}",
+								"departments",
+								"{{department_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "/api/v1/companies/{{company_id}}/departments/{{department_id}}",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:3000/api/v1/companies//departments/",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										"",
+										"departments",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4-X/5TO4MPCKAyY0ipFgr6/IraRNs\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 12:34:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "true"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:3000"
+		}
+	]
+}

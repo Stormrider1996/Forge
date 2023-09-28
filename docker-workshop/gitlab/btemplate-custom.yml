@@ -1,0 +1,49 @@
+include:
+  - project: barrage/gitlab-ci-templates
+    ref: master
+    file: GitlabFlow/Deploy-custom.yml
+
+build:
+  extends: .build
+  allow_failure: false
+  rules:
+    - when: always
+
+review:
+  extends: .review_app
+  environment:
+    on_stop: cleanup
+  rules:
+    - !reference ['.review_app', 'rules']
+    - when: on_success
+
+cleanup:
+  extends: .stop_review
+  rules:
+    - !reference ['.stop_review', 'rules']
+    - when: manual
+
+development:
+  extends: .development
+  needs:
+    - build
+  rules:
+    - !reference ['.development', 'rules']
+    - when: on_success
+
+staging:
+  extends: .pre-production
+  needs:
+    - build
+  rules:
+    - !reference ['.pre-production', 'rules']
+    - when: on_success
+
+production:
+  extends: .production
+  needs:
+    - build
+  rules:
+    - !reference ['.production', 'rules']
+    - when: on_success
+

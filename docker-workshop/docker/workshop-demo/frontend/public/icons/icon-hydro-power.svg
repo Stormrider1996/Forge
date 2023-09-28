@@ -1,0 +1,14 @@
+<svg id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 39.27">
+  <path class="wave-1"
+    d="M0,1c3.33,0,3.33,4,6.66,4S10,1,13.33,1s3.33,4,6.66,4,3.33-4,6.67-4,3.34,4,6.67,4,3.34-4,6.67-4" fill="none"
+    stroke="#042adb" stroke-miterlimit="10" stroke-width="2" />
+  <path class="wave-2"
+    d="M0,12.09c3.33,0,3.33,4,6.66,4s3.33-4,6.66-4,3.33,4,6.66,4,3.33-4,6.67-4,3.34,4,6.67,4,3.34-4,6.67-4" fill="none"
+    stroke="#042adb" stroke-miterlimit="10" stroke-width="2" />
+  <path class="wave-3"
+    d="M0,23.18c3.33,0,3.33,4,6.66,4s3.33-4,6.66-4,3.33,4,6.66,4,3.33-4,6.67-4,3.34,4,6.67,4,3.34-4,6.67-4" fill="none"
+    stroke="#042adb" stroke-miterlimit="10" stroke-width="2" />
+  <path class="wave-4"
+    d="M0,34.27c3.33,0,3.33,4,6.66,4s3.33-4,6.66-4,3.33,4,6.66,4,3.33-4,6.67-4,3.34,4,6.67,4,3.34-4,6.67-4" fill="none"
+    stroke="#042adb" stroke-miterlimit="10" stroke-width="2" />
+</svg>

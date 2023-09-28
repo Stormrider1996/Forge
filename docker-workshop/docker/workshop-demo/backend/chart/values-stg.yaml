@@ -1,0 +1,4 @@
+ingress:
+    annotations:
+        cert-manager.io/cluster-issuer: "barrage-le-production"
+        nginx.ingress.kubernetes.io/whitelist-source-range: 0.0.0.0/0
